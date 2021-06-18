@@ -189,6 +189,8 @@ github.com/smartystreets/goconvey v1.6.4/go.mod h1:syvi0/a8iFYH4r/RixwvyeAJjdLS9
 github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf/go.mod h1:ppFaPm6kpcHnZGqQTFhUIAQRIEhdQDWP1PCv4/ON354=
 github.com/sourcegraph/sourcegraph/lib v0.0.0-20210617211456-6a0b921496b1 h1:hFzoHqnJU6hkMcNmulm3r8EOtkKyF8seRSTZ1wFEEkI=
 github.com/sourcegraph/sourcegraph/lib v0.0.0-20210617211456-6a0b921496b1/go.mod h1:0Df1LLzPHhuxInVdcV/eIR7BVl1+R0rch5fSIK8+w5Y=
+github.com/sourcegraph/sourcegraph/lib v0.0.0-20210618195625-c5188e73e214 h1:6AWIPdcnzsbzV7YnoJ/qERsv7ZhGBcfs4+c7cJiK1i0=
+github.com/sourcegraph/sourcegraph/lib v0.0.0-20210618195625-c5188e73e214/go.mod h1:0Df1LLzPHhuxInVdcV/eIR7BVl1+R0rch5fSIK8+w5Y=
 github.com/spf13/afero v1.1.2/go.mod h1:j4pytiNVoe2o6bmDsKpLACNPDBIoEAkihy7loJ1B0CQ=
 github.com/spf13/cast v1.3.0/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkUJE=
 github.com/spf13/cobra v0.0.5/go.mod h1:3K3wKZymM7VvHMDS9+Akkh4K60UwM26emMESw8tLCHU=
