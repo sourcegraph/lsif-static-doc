@@ -1,4 +1,4 @@
-module github.com/sourcegraph/lsifdoctest
+module github.com/sourcegraph/lsifstaticdoc
 
 go 1.16
 
