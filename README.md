@@ -9,3 +9,7 @@ Long-term, we'd like for it to also be useful for actually generating API docume
 ## Usage
 
 Be sure to use e.g. the `Markdown Preview Enhanced` extension in VS Code when viewing the generated Markdown. It contains `<a name"foobar"></a>` anchors which VS Code's native markdown preview cannot handle.
+
+## Examples of output
+
+https://github.com/sourcegraph/lsif-static-doc-examples
