@@ -49,7 +49,10 @@ func Generate(ctx context.Context, r io.Reader, root string, opt Options) (*File
 	files := &Files{ByPath: map[string][]byte{}}
 	for page := range groupedBundleData.DocumentationPages {
 		filePath := page.Tree.PathID
-		if filePath == "/" {
+		if filePath == "/index" {
+			// rename "/index" in case it is a real page.
+			filePath = "/__index"
+		} else if filePath == "/" {
 			filePath = "/index"
 		}
 
