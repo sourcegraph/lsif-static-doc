@@ -29,7 +29,7 @@ var TestingOptions = Options{
 type Options struct {
 	// MatchingTags is a list of tags (exported, unexported, deprecated, etc.) and if the
 	// documentation page or section does not match at least one of them, it will be omitted.
-	MatchingTags []protocol.DocumentationTag
+	MatchingTags []protocol.Tag
 
 	// Emit raw JSON representation of pages.
 	JSON bool
@@ -163,7 +163,7 @@ func encodeMarkdown(w io.Writer, page *semantic.DocumentationPageData, opt Optio
 	return nil
 }
 
-func tagsMatch(want, have []protocol.DocumentationTag) bool {
+func tagsMatch(want, have []protocol.Tag) bool {
 	for _, want := range want {
 		got := false
 		for _, have := range have {
