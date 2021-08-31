@@ -12,7 +12,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sourcegraph/sourcegraph/lib/codeintel/lsif/conversion"
 	"github.com/sourcegraph/sourcegraph/lib/codeintel/lsif/protocol"
-	"github.com/sourcegraph/sourcegraph/lib/codeintel/semantic"
+	"github.com/sourcegraph/sourcegraph/lib/codeintel/precise"
 )
 
 type Files struct {
@@ -78,7 +78,7 @@ func Generate(ctx context.Context, r io.Reader, root string, opt Options) (*File
 	return files, nil
 }
 
-func encodeMarkdown(w io.Writer, page *semantic.DocumentationPageData, opt Options) error {
+func encodeMarkdown(w io.Writer, page *precise.DocumentationPageData, opt Options) error {
 	fmt.Fprintf(w, "# %s\n\n", page.Tree.Label)
 	if page.Tree.Detail.String() != "" {
 		fmt.Fprintf(w, "%s", page.Tree.Detail)
@@ -88,8 +88,8 @@ func encodeMarkdown(w io.Writer, page *semantic.DocumentationPageData, opt Optio
 	fmt.Fprintf(w, "## Index\n\n")
 
 	wroteOneSubpage := false
-	var writeSubpages func(node *semantic.DocumentationNode)
-	writeSubpages = func(node *semantic.DocumentationNode) {
+	var writeSubpages func(node *precise.DocumentationNode)
+	writeSubpages = func(node *precise.DocumentationNode) {
 		if !tagsMatch(opt.MatchingTags, node.Documentation.Tags) {
 			return
 		}
@@ -109,8 +109,8 @@ func encodeMarkdown(w io.Writer, page *semantic.DocumentationPageData, opt Optio
 	}
 	writeSubpages(page.Tree)
 
-	var writeIndex func(node *semantic.DocumentationNode, depth int)
-	writeIndex = func(node *semantic.DocumentationNode, depth int) {
+	var writeIndex func(node *precise.DocumentationNode, depth int)
+	writeIndex = func(node *precise.DocumentationNode, depth int) {
 		if !tagsMatch(opt.MatchingTags, node.Documentation.Tags) {
 			return
 		}
@@ -128,8 +128,8 @@ func encodeMarkdown(w io.Writer, page *semantic.DocumentationPageData, opt Optio
 	fmt.Fprintf(w, "\n\n")
 
 	// Write the actual content sections of the page.
-	var writeSection func(node *semantic.DocumentationNode, depth int)
-	writeSection = func(node *semantic.DocumentationNode, depth int) {
+	var writeSection func(node *precise.DocumentationNode, depth int)
+	writeSection = func(node *precise.DocumentationNode, depth int) {
 		if !tagsMatch(opt.MatchingTags, node.Documentation.Tags) {
 			return
 		}
